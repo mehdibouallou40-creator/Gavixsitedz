@@ -679,7 +679,7 @@ img {
   }
 
   .catalog-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .catalog-image {
@@ -740,12 +740,27 @@ img {
     padding: 24px;
   }
 
+  /* ✅ CORRECTION : 6 produits par ligne sur mobile */
   .catalog-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
   }
 
   .catalog-image {
-    height: 280px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .catalog-body {
+    padding: 6px;
+  }
+
+  .catalog-title {
+    font-size: 0.65rem;
+  }
+
+  .catalog-price {
+    font-size: 0.65rem;
   }
 }
 .custom-page-hero {
