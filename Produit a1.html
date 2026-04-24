@@ -498,6 +498,7 @@
     }
 
     function fillCommunes(wilayaCode) {
+      console.log("Wilaya choisie :", wilayaCode, "Total communes :", communesData.length);
       const selectedCode = normalizeCode(wilayaCode);
 
       const filtered = communesData
@@ -509,7 +510,7 @@
         );
 
       communeSelect.innerHTML = '<option value="">Choisir une commune</option>';
-
+console.log("Communes trouvées :", filtered);
       filtered.forEach((item) => {
         const option = document.createElement("option");
         option.value = item.commune_name_ascii;
@@ -661,50 +662,47 @@
     }
 
     if (wilayaSelect && communeSelect) {
-      loadCommunes();
+  loadCommunes();
 
-      wilayaSelect.addEventListener("change", () => {
-  const wilayaCode = wilayaSelect.value;
+  function handleWilayaChange() {
+    const wilayaCode = wilayaSelect.value;
 
-  if (!wilayaCode) {
-    resetCommuneSelect();
-    resetDeliveryOptions("Choisir d’abord une commune");
-    wilayaSelect.blur();
-    return;
-  }
-
-  fillCommunes(wilayaCode);
-  wilayaSelect.blur();
-
-  setTimeout(() => {
-    communeSelect.focus();
-    communeSelect.click();
-  }, 150);
-});
-
-communeSelect.addEventListener("change", () => {
-  if (!communeSelect.value) {
-    resetDeliveryOptions("Choisir d’abord une commune");
-    communeSelect.blur();
-    return;
-  }
-
-  enableDeliveryOptions();
-  communeSelect.blur();
-});
-
-      deliveryHomeCard.addEventListener("click", () => {
-        if (!deliveryHomeRadio.disabled) {
-          selectDelivery("home");
-        }
-      });
-
-      deliveryDeskCard.addEventListener("click", () => {
-        if (!deliveryDeskRadio.disabled) {
-          selectDelivery("desk");
-        }
-      });
+    if (!wilayaCode) {
+      resetCommuneSelect();
+      resetDeliveryOptions("Choisir d’abord une commune");
+      return;
     }
+
+    fillCommunes(wilayaCode);
+  }
+
+  function handleCommuneChange() {
+    if (!communeSelect.value) {
+      resetDeliveryOptions("Choisir d’abord une commune");
+      return;
+    }
+
+    enableDeliveryOptions();
+  }
+
+  wilayaSelect.addEventListener("change", handleWilayaChange);
+  wilayaSelect.addEventListener("input", handleWilayaChange);
+
+  communeSelect.addEventListener("change", handleCommuneChange);
+  communeSelect.addEventListener("input", handleCommuneChange);
+
+  deliveryHomeCard.addEventListener("click", () => {
+    if (!deliveryHomeRadio.disabled) {
+      selectDelivery("home");
+    }
+  });
+
+  deliveryDeskCard.addEventListener("click", () => {
+    if (!deliveryDeskRadio.disabled) {
+      selectDelivery("desk");
+    }
+  });
+}
   </script>
 </body>
 </html>
