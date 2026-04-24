@@ -650,25 +650,34 @@
       loadCommunes();
 
       wilayaSelect.addEventListener("change", () => {
-        const wilayaCode = wilayaSelect.value;
+  const wilayaCode = wilayaSelect.value;
 
-        if (!wilayaCode) {
-          resetCommuneSelect();
-          resetDeliveryOptions("Choisir d’abord une commune");
-          return;
-        }
+  if (!wilayaCode) {
+    resetCommuneSelect();
+    resetDeliveryOptiùons("Choisir d’abord une commune");
+    wilayaSelect.blur();
+    return;
+  }
 
-        fillCommunes(wilayaCode);
-      });
+  fillCommunes(wilayaCode);
+  wilayaSelect.blur();
 
-      communeSelect.addEventListener("change", () => {
-        if (!communeSelect.value) {
-          resetDeliveryOptions("Choisir d’abord une commune");
-          return;
-        }
+  setTimeout(() => {
+    communeSelect.focus();
+    communeSelect.click();
+  }, 150);
+});
 
-        enableDeliveryOptions();
-      });
+communeSelect.addEventListener("change", () => {
+  if (!communeSelect.value) {
+    resetDeliveryOptions("Choisir d’abord une commune");
+    communeSelect.blur();
+    return;
+  }
+
+  enableDeliveryOptions();
+  communeSelect.blur();
+});
 
       deliveryHomeCard.addEventListener("click", () => {
         if (!deliveryHomeRadio.disabled) {
