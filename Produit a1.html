@@ -562,25 +562,39 @@
     }
 
     async function loadCommunes() {
-      try {
-        resetCommuneSelect("Chargement des communes...");
-        const response = await fetch("data/datacommunes-algerie.json");
-        if (!response.ok) throw new Error("Impossible de charger le fichier local des communes.");
-        const payload = await response.json();
-        if (!Array.isArray(payload)) throw new Error("Le fichier JSON des communes n'est pas valide.");
+  try {
+    resetCommuneSelect("Chargement des communes...");
 
-        communesData = payload.filter(
-          (item) => item && item.wilaya_code && item.commune_name_ascii
-        );
+    const response = await fetch("data/datacommunes-algerie.json");
+    console.log("Response OK :", response.ok);
+    console.log("Response status :", response.status);
 
-        resetCommuneSelect();
-        resetDeliveryOptions();
-      } catch (error) {
-        console.error(error);
-        resetCommuneSelect("Erreur de chargement des communes");
-        resetDeliveryOptions("Choisir d’abord une commune");
-      }
+    if (!response.ok) {
+      throw new Error("Impossible de charger le fichier local des communes.");
     }
+
+    const payload = await response.json();
+    console.log("Payload :", payload);
+    console.log("Premier élément :", payload[0]);
+
+    if (!Array.isArray(payload)) {
+      throw new Error("Le fichier JSON des communes n'est pas valide.");
+    }
+
+    communesData = payload.filter(
+      (item) => item && item.wilaya_code && item.commune_name_ascii
+    );
+
+    console.log("Nombre de communes chargées :", communesData.length);
+
+    resetCommuneSelect();
+    resetDeliveryOptions();
+  } catch (error) {
+    console.error("Erreur loadCommunes :", error);
+    resetCommuneSelect("Erreur de chargement des communes");
+    resetDeliveryOptions("Choisir d’abord une commune");
+  }
+}
 
     if (showOrderFormBtn && orderFormWrapper) {
       showOrderFormBtn.addEventListener("click", () => {
