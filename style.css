@@ -740,9 +740,9 @@ img {
     padding: 24px;
   }
 
-  /* ✅ CORRECTION : 6 produits par ligne sur mobile */
+  /* ✅ CORRECTION : 4 produits par ligne sur mobile */
   .catalog-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
 
