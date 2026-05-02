@@ -4,49 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gravix | Gravure laser moderne et personnalisée</title>
-  <meta
-    name="description"
-    content="Gravix - Gravure laser moderne, précise et personnalisée. Découvrez nos créations, produits phares et réalisations sur mesure."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* --- Ajustements visuels --- */
+    
+    .brand-logo { width: 95px !important; height: auto; display: block; }
+    .brand-name { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
+
+    /* --- HERO : Alignement Titre vs Logo --- */
+    .hero-grid-main {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr; /* Titre à gauche, Logo à droite */
+      align-items: center;
+      gap: 40px;
+      text-align: left; /* Alignement à gauche pour plus de modernité */
+      padding: 60px 0;
+    }
+
+    .hero-title-main {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .hero-large-logo-right {
+      width: 220px; /* Taille imposante demandée */
+      height: auto;
+      justify-self: center;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.12));
+    }
+
+    /* Grille de produits élégante */
+    .featured-products-grid { 
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 45px; 
+      margin-top: 60px;
+    }
+
+    .product-image-container {
+      width: 100%;
+      max-width: 160px; 
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+    }
+    
+    .product-image { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+
+    .product-card { text-align: center; text-decoration: none; display: block; transition: var(--transition); }
+    .product-card:hover { transform: translateY(-5px); }
+
+    .featured-product-title { 
+      display: block; 
+      margin-top: 15px; 
+      font-weight: 600; 
+      color: var(--text); 
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid-main { grid-template-columns: 1fr; text-align: center; }
+      .hero-large-logo-right { width: 160px; order: -1; } /* Logo passe au dessus sur mobile */
+      .featured-products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .featured-products-grid { grid-template-columns: 1fr; }
+      .hero-title-main { font-size: 2.2rem; }
+    }
+  </style>
 </head>
 <body>
   <div class="site-bg"></div>
 
   <header class="header">
     <div class="container nav-container">
-      <a href="#home" class="brand">
+      <a href="index.html" class="brand">
         <img src="images/logo-gravix.png" alt="Logo Gravix" class="brand-logo" />
         <div class="brand-text">
           <span class="brand-name">GRAVIX</span>
           <span class="brand-subtitle" data-i18n="brandSubtitle">Gravure laser</span>
         </div>
       </a>
-
       <nav class="nav" id="navMenu">
-        <a href="#home" data-i18n="navHome">Accueil</a>
+        <a href="index.html" data-i18n="navHome">Accueil</a>
         <a href="product.html" data-i18n="navProducts">Produits</a>
         <a href="custom.html" data-i18n="navCustom">Sur mesure</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
-
       <div class="header-actions">
-        <button class="lang-switch" id="langToggle" aria-label="Changer la langue">
+        <button class="lang-switch" id="langToggle">
           <span class="lang-option active" id="frLabel">🇫🇷 FR</span>
           <span class="lang-divider">|</span>
           <span class="lang-option" id="arLabel">🇩🇿 AR</span>
-        </button>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
-          <span></span>
-          <span></span>
-          <span></span>
         </button>
       </div>
     </div>
@@ -54,131 +109,56 @@
 
   <main>
     <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="hero-tag" data-i18n="heroTag">Créations précises & élégantes</span>
-
-          <h1 data-i18n="heroTitle">
-            La gravure laser moderne au service de vos idées
-          </h1>
-
-          <p class="hero-text" data-i18n="heroText">
-            Gravix réalise des créations en gravure laser avec soin, précision et personnalité.
-            Découvrez des produits uniques, des collections variées et des créations sur mesure.
+      <div class="container hero-grid-main">
+        <!-- Côté Gauche : Texte -->
+        <div class="hero-text-content">
+          <span class="hero-tag" data-i18n="heroTag" style="margin-bottom: 20px; display: inline-block;">Design sobre & Finition premium</span>
+          <h1 class="hero-title-main" data-i18n="heroTitle">La gravure laser moderne au service de vos idées</h1>
+          <p class="hero-text" style="max-width: 550px; margin-bottom: 35px; color: var(--muted);">
+            Des créations uniques et personnalisées pour sublimer votre intérieur avec une précision absolue.
           </p>
-
-          <div class="hero-buttons">
-            <a href="product.html" class="btn btn-primary" data-i18n="heroBtn1">Voir nos produits</a>
-            <a href="#contact" class="btn btn-secondary" data-i18n="heroBtn2">Nous contacter</a>
-          </div>
+          <a href="product.html" class="btn btn-primary" data-i18n="heroBtn1">Voir les produits</a>
         </div>
 
-        <div class="hero-card">
-          <div class="glow-circle"></div>
-          <div class="hero-card-content">
-            <img src="images/logo-gravix.png" alt="Logo Gravix" class="hero-logo" />
-            <h2 data-i18n="heroCardTitle">Design sobre. Finition premium.</h2>
-            <p data-i18n="heroCardText">
-              Un univers visuel inspiré par la précision, la lumière et l’élégance.
-            </p>
-          </div>
+        <!-- Côté Droit : Grand Logo -->
+        <div class="hero-image-content">
+          <img src="images/logo-gravix.png" alt="Grand Logo Gravix" class="hero-large-logo-right" />
         </div>
       </div>
     </section>
 
-    <section class="section" id="featured">
+    <section class="section">
       <div class="container">
-        <div class="section-heading">
-          <span class="section-label" data-i18n="featuredLabel">Produits phares</span>
-          <h2 data-i18n="featuredTitle">Nos créations mises en avant</h2>
-          <p data-i18n="featuredText">
-            Découvrez une sélection de produits Gravix réalisés avec précision et élégance.
-          </p>
+        <div class="section-heading" style="text-align: center; margin-bottom: 40px;">
+          <h2 data-i18n="featuredTitle">Produits phares</h2>
         </div>
 
-        <div class="products-grid featured-products-grid">
-          <article class="product-card featured-product-card">
-            <a href="product-7.html" class="featured-product-link">
-              <img src="images/HI1T.png" alt="Horloge de table islamique" class="product-image" />
-            </a>
-            <div class="product-card-body">
-              <a href="product-7.html" class="featured-product-title">Horloge de table islamique</a>
-              <p>
-                Une pièce élégante au style islamique, idéale pour une décoration raffinée et chaleureuse.
-              </p>
-            </div>
-          </article>
-
-          <article class="product-card featured-product-card">
-            <a href="product-3.html" class="featured-product-link">
-              <img src="images/cerf horloge.jpg" alt="Horloge murale Cerf noir" class="product-image" />
-            </a>
-            <div class="product-card-body">
-              <a href="product-3.html" class="featured-product-title">Horloge murale Cerf noir</a>
-              <p>
-                Un modèle mural original avec une silhouette de cerf, moderne et décoratif.
-              </p>
-            </div>
-          </article>
-
-          <article class="product-card featured-product-card">
-            <a href="product-16.html" class="featured-product-link">
-              <img src="images/allahtrust.png" alt="Cadre Allah Trust" class="product-image" />
-            </a>
-            <div class="product-card-body">
-              <a href="product-16.html" class="featured-product-title">Cadre Allah Trust</a>
-              <p>
-                Un cadre spirituel au rendu sobre et harmonieux, parfait pour une décoration inspirante.
-              </p>
-            </div>
-          </article>
+        <div class="featured-products-grid">
+          <a href="commande-hm5.html" class="product-card">
+            <div class="product-image-container"><img src="images/hm5.jpg" alt="Horloge Home Love" class="product-image" /></div>
+            <span class="featured-product-title" data-i18n="hm5Name">Horloge Home Love</span>
+          </a>
+          <a href="commande-ds10.html" class="product-card">
+            <div class="product-image-container"><img src="images/ds10.jpg" alt="Mandala mural" class="product-image" /></div>
+            <span class="featured-product-title" data-i18n="ds10Name">Mandala mural</span>
+          </a>
+          <a href="commande-sm3.html" class="product-card">
+            <div class="product-image-container"><img src="images/sm3.jpg" alt="Pendule moderne" class="product-image" /></div>
+            <span class="featured-product-title" data-i18n="sm3Name">Pendule moderne</span>
+          </a>
+          <a href="commande-ds11.html" class="product-card">
+            <div class="product-image-container"><img src="images/ds11.jpg" alt="Fleurs grimpantes" class="product-image" /></div>
+            <span class="featured-product-title" data-i18n="ds11Name">Fleurs grimpantes</span>
+          </a>
+          <a href="commande-hm1.html" class="product-card">
+            <div class="product-image-container"><img src="images/hm1.jpg" alt="Horloge bicolore" class="product-image" /></div>
+            <span class="featured-product-title" data-i18n="hm1Name">Horloge bicolore</span>
+          </a>
+          <a href="commande-ds12.html" class="product-card">
+            <div class="product-image-container"><img src="images/ds12.jpg" alt="Collection cadres" class="product-image" /></div>
+            <span class="featured-product-title" data-i18n="ds12Name">Collection cadres</span>
+          </a>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="why">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-label" data-i18n="whyLabel">Pourquoi Gravix</span>
-          <h2 data-i18n="whyTitle">Un travail précis, propre et personnalisé</h2>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-item">
-            <h3 data-i18n="why1Title">Précision</h3>
-            <p data-i18n="why1Text">Chaque gravure est pensée avec soin pour un résultat net et harmonieux.</p>
-          </div>
-
-          <div class="feature-item">
-            <h3 data-i18n="why2Title">Qualité visuelle</h3>
-            <p data-i18n="why2Text">Un style moderne et subtil, adapté aux créations décoratives ou professionnelles.</p>
-          </div>
-
-          <div class="feature-item">
-            <h3 data-i18n="why3Title">Personnalisation</h3>
-            <p data-i18n="why3Text">Noms, logos, textes ou idées originales : chaque projet peut devenir unique.</p>
-          </div>
-
-          <div class="feature-item">
-            <h3 data-i18n="why4Title">Souplesse</h3>
-            <p data-i18n="why4Text">Produits uniques, gammes variées ou créations sur demande selon ton besoin.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="custom">
-      <div class="container custom-box">
-        <div>
-          <span class="section-label" data-i18n="customLabel">Sur mesure</span>
-          <h2 data-i18n="customTitle">Vous avez une idée ? Gravix la réalise.</h2>
-          <p data-i18n="customText">
-            Nous pouvons créer des pièces personnalisées pour cadeaux, décoration, identité visuelle,
-            projets professionnels et demandes spéciales.
-          </p>
-        </div>
-
-        <a href="custom.html" class="btn btn-primary" data-i18n="customBtn">Demander un projet</a>
       </div>
     </section>
   </main>
@@ -187,45 +167,27 @@
     <div class="container footer-grid">
       <div>
         <h3 class="footer-title">GRAVIX</h3>
-        <p class="footer-text" data-i18n="footerText">
-          Gravure laser moderne, simple et subtile.
-        </p>
+        <p class="footer-text" data-i18n="footerText">Gravure laser moderne, simple et subtile.</p>
       </div>
-
       <div>
-        <h4 class="footer-subtitle" data-i18n="footerLinksTitle">Liens de contact</h4>
+        <h4 class="footer-subtitle" data-i18n="footerLinksTitle">Contact</h4>
         <ul class="footer-links">
-          <li>
-            <a href="https://wa.me/213559625588" target="_blank" rel="noopener noreferrer">
-              WhatsApp / Téléphone
-            </a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/share/1EeF8qv5Ep/" target="_blank" rel="noopener noreferrer">
-              Facebook
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/gravix_deco/" target="_blank" rel="noopener noreferrer">
-              Instagram
-            </a>
-          </li>
+          <li><a href="https://wa.me/213559625588" target="_blank">WhatsApp / Téléphone</a></li>
+          <li><a href="https://www.facebook.com/share/1EeF8qv5Ep/" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/gravix_deco/" target="_blank">Instagram</a></li>
         </ul>
       </div>
-
       <div>
         <h4 class="footer-subtitle" data-i18n="footerNavTitle">Navigation</h4>
         <ul class="footer-links">
-          <li><a href="#home" data-i18n="navHome">Accueil</a></li>
-          <li><a href="product.html" data-i18n="navProducts">Produits</a></li>
-          <li><a href="custom.html" data-i18n="navCustom">Sur mesure</a></li>
-          <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="product.html">Produits</a></li>
+          <li><a href="custom.html">Sur mesure</a></li>
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Gravix. <span data-i18n="rights">Tous droits réservés.</span></p>
+      <p>© <span id="year"></span> Gravix. <span data-i18n="rights">Tous droits réservés</span>.</p>
     </div>
   </footer>
 

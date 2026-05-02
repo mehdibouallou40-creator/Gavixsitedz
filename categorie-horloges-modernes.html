@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gravix | Horloges modernes</title>
+  <meta name="description" content="Découvrez nos horloges modernes gravées au laser." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .cat-page-hero { padding-top: 28px; padding-bottom: 14px; }
+    .cat-page-hero .products-page-title { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 0; }
+    .cat-page-section { padding-top: 10px; }
+    .produits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .produit-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); display: flex; flex-direction: column; }
+    .produit-card:hover { transform: translateY(-4px); border-color: rgba(215, 155, 82, 0.28); box-shadow: 0 10px 36px rgba(160, 110, 60, 0.14); }
+    .produit-img-wrap { overflow: hidden; background: var(--bg-soft); }
+    .produit-img-wrap img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .produit-card:hover .produit-img-wrap img { transform: scale(1.04); }
+    .produit-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .produit-name { font-size: 0.97rem; font-weight: 600; color: var(--text); line-height: 1.35; }
+    .produit-price { font-size: 1rem; font-weight: 700; color: var(--accent); margin-top: auto; }
+    .produit-btn { display: inline-flex; align-items: center; justify-content: center; margin-top: 6px; padding: 9px 0; border-radius: 999px; background: var(--accent); color: #fff; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: background var(--transition), transform var(--transition); }
+    .produit-btn:hover { background: var(--accent-strong); transform: translateY(-1px); }
+    @media (max-width: 1100px) { .produits-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .produits-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .produits-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="site-bg"></div>
+
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="images/logo-gravix.png" alt="Logo Gravix" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">GRAVIX</span>
+          <span class="brand-subtitle" data-i18n="brandSubtitle">Gravure laser</span>
+        </div>
+      </a>
+      <nav class="nav" id="navMenu">
+        <a href="index.html"   data-i18n="navHome">Accueil</a>
+        <a href="product.html" data-i18n="navProducts">Produits</a>
+        <a href="custom.html"  data-i18n="navCustom">Sur mesure</a>
+        <a href="#contact"     data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-switch" id="langToggle" aria-label="Changer la langue">
+          <span class="lang-option active" id="frLabel">🇫🇷 FR</span>
+          <span class="lang-divider">|</span>
+          <span class="lang-option" id="arLabel">🇩🇿 AR</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section cat-page-hero">
+      <div class="container">
+        <div class="section-heading" style="text-align:left; margin-bottom:0;">
+          <a href="product.html" style="font-size:0.85rem; color:var(--muted); text-decoration:none;" data-i18n="backCategories">← Catégories</a>
+          <h1 class="products-page-title" style="margin-top:8px;" data-i18n="catHorModPageTitle">Horloges modernes</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cat-page-section">
+      <div class="container">
+        <div class="produits-grid">
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm1.jpg" alt="Horloge murale demi-lune bicolore" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm1Name">Horloge murale demi-lune bicolore</span>
+              <span class="produit-price">3100 DA</span>
+              <a href="commande-hm1.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm2.jpg" alt="Horloge murale cercle bois naturel" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm2Name">Horloge murale cercle bois naturel</span>
+              <span class="produit-price">2900 DA</span>
+              <a href="commande-hm2.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm3.jpg" alt="Horloge murale géométrique noire" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm3Name">Horloge murale géométrique noire</span>
+              <span class="produit-price">2100 DA</span>
+              <a href="commande-hm3.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm4.jpg" alt="Horloge murale vélo vintage" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm4Name">Horloge murale vélo vintage</span>
+              <span class="produit-price">3900 DA</span>
+              <a href="commande-hm4.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm5.jpg" alt="Horloge murale Home Love" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm5Name">Horloge murale Home Love</span>
+              <span class="produit-price">4900 DA</span>
+              <a href="commande-hm5.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm6.jpg" alt="Horloge murale mappemonde" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm6Name">Horloge murale mappemonde</span>
+              <span class="produit-price">2100 DA</span>
+              <a href="commande-hm6.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm7.jpg" alt="Horloge murale clé de sol musique" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm7Name">Horloge murale clé de sol musique</span>
+              <span class="produit-price">2300 DA</span>
+              <a href="commande-hm7.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm8.jpg" alt="Horloge murale chiffres arabes" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm8Name">Horloge murale chiffres arabes</span>
+              <span class="produit-price">2400 DA</span>
+              <a href="commande-hm8.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm9.jpg" alt="Horloge murale calligraphie salon" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm9Name">Horloge murale calligraphie salon</span>
+              <span class="produit-price">4100 DA</span>
+              <a href="commande-hm9.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/hm10.jpg" alt="Horloge murale calligraphie islamique moderne" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="hm10Name">Horloge murale calligraphie islamique moderne</span>
+              <span class="produit-price">4900 DA</span>
+              <a href="commande-hm10.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/sm6.jpg" alt="Horloge de table ronde bois clair" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="sm6Name">Horloge de table ronde bois clair</span>
+              <span class="produit-price">2100 DA</span>
+              <a href="commande-sm6.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/sm5.jpg" alt="Horloge de table géométrique tricolore" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="sm5Name">Horloge de table géométrique tricolore</span>
+              <span class="produit-price">2700 DA</span>
+              <a href="commande-sm5.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/sm4.jpg" alt="Horloge de table feuille d'érable" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="sm4Name">Horloge de table feuille d'érable</span>
+              <span class="produit-price">2100 DA</span>
+              <a href="commande-sm4.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/sm3.jpg" alt="Horloge murale pendule moderne" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="sm3Name">Horloge murale pendule moderne</span>
+              <span class="produit-price">2900 DA</span>
+              <a href="commande-sm3.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/sm2.jpg" alt="Horloge murale bateau pirate" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="sm2Name">Horloge murale bateau pirate</span>
+              <span class="produit-price">2900 DA</span>
+              <a href="commande-sm2.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+          <div class="produit-card">
+            <div class="produit-img-wrap">
+              <img src="images/sm1.jpg" alt="Horloge murale famille silhouette" />
+            </div>
+            <div class="produit-body">
+              <span class="produit-name" data-i18n="sm1Name">Horloge murale famille silhouette</span>
+              <span class="produit-price">4300 DA</span>
+              <a href="commande-sm1.html" class="produit-btn" data-i18n="btnCommander">Commander</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="footer-title">GRAVIX</h3>
+        <p class="footer-text" data-i18n="footerText">Gravure laser moderne, simple et subtile.</p>
+      </div>
+      <div>
+        <h4 class="footer-subtitle" data-i18n="footerLinksTitle">Liens de contact</h4>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/213559625588" target="_blank" rel="noopener noreferrer">WhatsApp / Téléphone</a></li>
+          <li><a href="https://www.facebook.com/share/1EeF8qv5Ep/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://www.instagram.com/gravix_deco/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-subtitle" data-i18n="footerNavTitle">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"   data-i18n="navHome">Accueil</a></li>
+          <li><a href="product.html" data-i18n="navProducts">Produits</a></li>
+          <li><a href="custom.html"  data-i18n="navCustom">Sur mesure</a></li>
+          <li><a href="#contact"     data-i18n="navContact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Gravix. <span data-i18n="rights">Tous droits réservés.</span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gravix | Horloge murale Home Love</title>
+  <meta name="description" content="Commander l'horloge murale Home Love de Gravix." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Styles structurels identiques aux pages précédentes */
+    .order-form-wrapper{margin-top:22px;display:none;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px}.order-form-wrapper.show{display:block}.order-form-title{font-size:1.2rem;margin-bottom:16px;color:var(--text)}.order-form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.order-form-group{display:flex;flex-direction:column}.order-form-group label{margin-bottom:8px;font-weight:600;color:var(--text)}.order-form-group input,.order-form-group select{width:100%;border:1px solid #c9b8aa;background:#fff;color:#4b2e1f;border-radius:14px;padding:14px 16px;font:inherit;outline:none;transition:var(--transition)}.order-form-group input:focus,.order-form-group select:focus{border-color:rgba(215,155,82,.45);box-shadow:0 0 0 4px rgba(215,155,82,.08)}.order-form-group select option{background:#fff;color:#4b2e1f}#deliveryPrice[readonly]{background:#f7f2ed;color:#4b2e1f;font-weight:700;cursor:not-allowed}.delivery-options{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.delivery-card{border:1px solid var(--line);border-radius:18px;padding:16px;background:rgba(255,255,255,.04);transition:var(--transition);cursor:pointer}.delivery-card.active{border-color:rgba(215,155,82,.55);box-shadow:0 0 0 3px rgba(215,155,82,.10)}.delivery-card input{display:none}.delivery-card-title{display:block;font-weight:700;color:var(--text);margin-bottom:8px}.delivery-card-price{color:var(--accent-strong);font-weight:700;font-size:1rem}.delivery-placeholder{color:var(--muted);font-size:.95rem;margin-top:4px}.order-form-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}.order-note{color:var(--muted);font-size:.95rem;margin-top:12px}.form-status{margin-top:14px;min-height:24px;color:var(--accent-strong);font-weight:600}@media(max-width:640px){.order-form-grid,.delivery-options{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="site-bg"></div>
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="images/logo-gravix.png" alt="Logo Gravix" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">GRAVIX</span>
+          <span class="brand-subtitle" data-i18n="brandSubtitle">Gravure laser</span>
+        </div>
+      </a>
+      <nav class="nav" id="navMenu">
+        <a href="index.html"   data-i18n="navHome">Accueil</a>
+        <a href="product.html" data-i18n="navProducts">Produits</a>
+        <a href="custom.html"  data-i18n="navCustom">Sur mesure</a>
+        <a href="#contact"     data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-switch" id="langToggle" aria-label="Changer la langue">
+          <span class="lang-option active" id="frLabel">🇫🇷 FR</span>
+          <span class="lang-divider">|</span>
+          <span class="lang-option" id="arLabel">🇩🇿 AR</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section product-page-section">
+      <div class="container product-layout">
+
+        <div class="product-gallery single-product-gallery">
+          <img src="images/hm5.jpg" alt="Horloge murale Home Love" class="main-product-image" />
+        </div>
+
+        <div class="product-details">
+          <span class="section-label" data-i18n="produitGravix">Produit Gravix</span>
+          <h1 class="product-page-title" data-i18n="hm5Name">Horloge murale Home Love</h1>
+          <p class="product-page-price">4900 DA</p>
+
+          <div class="product-actions">
+            <button type="button" class="btn btn-primary" id="showOrderFormBtn" data-i18n="btnCommander">Commander</button>
+            <a href="categorie-horloges-modernes.html" class="btn btn-secondary" data-i18n="backCategories">← Catégories</a>
+          </div>
+
+          <div class="order-form-wrapper" id="orderFormWrapper">
+            <h2 class="order-form-title" data-i18n="orderFormTitle">Informations de commande</h2>
+            <form id="orderForm">
+              <input type="hidden" name="access_key"  value="608be9a9-3b60-4dbd-a5cd-54630603dfcf" />
+              <input type="hidden" name="subject"     value="Nouvelle commande - Gravix" />
+              <input type="hidden" name="from_name"   value="Gravix site" />
+              <input type="hidden" name="Produit"     value="Horloge murale Home Love" />
+              <input type="hidden" name="Prix"        value="4900 DA" />
+
+              <div class="order-form-grid">
+                <div class="order-form-group">
+                  <label for="lastName" data-i18n="labelNom">Nom</label>
+                  <input type="text" id="lastName" name="Nom" required />
+                </div>
+                <div class="order-form-group">
+                  <label for="firstName" data-i18n="labelPrenom">Prénom</label>
+                  <input type="text" id="firstName" name="Prenom" required />
+                </div>
+                <div class="order-form-group">
+                  <label for="phone" data-i18n="labelPhone">Téléphone</label>
+                  <input type="tel" id="phone" name="Telephone" required />
+                </div>
+                <div class="order-form-group">
+                  <label for="wilaya" data-i18n="labelWilaya">Wilaya</label>
+                  <select id="wilaya" name="Wilaya" required>
+                    <option value="">Choisir une wilaya</option>
+                    <option value="01">01 - Adrar</option><option value="02">02 - Chlef</option><option value="03">03 - Laghouat</option><option value="04">04 - Oum El Bouaghi</option><option value="05">05 - Batna</option><option value="06">06 - Béjaïa</option><option value="07">07 - Biskra</option><option value="08">08 - Béchar</option><option value="09">09 - Blida</option><option value="10">10 - Bouira</option><option value="11">11 - Tamanrasset</option><option value="12">12 - Tébessa</option><option value="13">13 - Tlemcen</option><option value="14">14 - Tiaret</option><option value="15">15 - Tizi Ouzou</option><option value="16">16 - Alger</option><option value="17">17 - Djelfa</option><option value="18">18 - Jijel</option><option value="19">19 - Sétif</option><option value="20">20 - Saïda</option><option value="21">21 - Skikda</option><option value="22">22 - Sidi Bel Abbès</option><option value="23">23 - Annaba</option><option value="24">24 - Guelma</option><option value="25">25 - Constantine</option><option value="26">26 - Médéa</option><option value="27">27 - Mostaganem</option><option value="28">28 - M'Sila</option><option value="29">29 - Mascara</option><option value="30">30 - Ouargla</option><option value="31">31 - Oran</option><option value="32">32 - El Bayadh</option><option value="33">33 - Illizi</option><option value="34">34 - Bordj Bou Arréridj</option><option value="35">35 - Boumerdès</option><option value="36">36 - El Tarf</option><option value="37">37 - Tindouf</option><option value="38">38 - Tissemsilt</option><option value="39">39 - El Oued</option><option value="40">40 - Khenchela</option><option value="41">41 - Souk Ahras</option><option value="42">42 - Tipaza</option><option value="43">43 - Mila</option><option value="44">44 - Aïn Defla</option><option value="45">45 - Naâma</option><option value="46">46 - Aïn Témouchent</option><option value="47">47 - Ghardaïa</option><option value="48">48 - Relizane</option><option value="49">49 - El M'Ghair</option><option value="50">50 - El Meniaa</option><option value="51">51 - Ouled Djellal</option><option value="52">52 - Bordj Badji Mokhtar</option><option value="53">53 - Béni Abbès</option><option value="54">54 - Timimoun</option><option value="55">55 - Touggourt</option><option value="56">56 - Djanet</option><option value="57">57 - In Salah</option><option value="58">58 - In Guezzam</option>
+                  </select>
+                </div>
+                <div class="order-form-group">
+                  <label for="commune" data-i18n="labelCommune">Commune</label>
+                  <select id="commune" name="Commune" disabled required>
+                    <option value="">Choisir d'abord une wilaya</option>
+                  </select>
+                </div>
+                <div class="order-form-group">
+                  <label for="deliveryPrice" data-i18n="labelFrais">Frais de livraison</label>
+                  <input type="text" id="deliveryPrice" name="Frais livraison" readonly placeholder="Selon wilaya et mode" />
+                </div>
+              </div>
+
+              <div style="margin-top:16px;">
+                <label style="display:block;font-weight:600;color:var(--text);margin-bottom:10px;" data-i18n="labelModeLivraison">Mode de livraison</label>
+                <div class="delivery-options">
+                  <div class="delivery-card" id="deliveryHomeCard">
+                    <input type="radio" name="Shipping mode" value="Domicile" id="deliveryHome" disabled />
+                    <span class="delivery-card-title" data-i18n="modeDomicile">🏠 Domicile</span>
+                    <span class="delivery-card-price" id="homePrice">—</span>
+                    <p class="delivery-placeholder" id="deliveryPlaceholder" data-i18n="choixCommune">Choisir d'abord une commune</p>
+                  </div>
+                  <div class="delivery-card" id="deliveryDeskCard">
+                    <input type="radio" name="Shipping mode" value="Bureau" id="deliveryDesk" disabled />
+                    <span class="delivery-card-title" data-i18n="modeBureau">🏢 Bureau</span>
+                    <span class="delivery-card-price" id="deskPrice">—</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-form-actions">
+                <button type="submit" class="btn btn-primary" id="submitOrderBtn" data-i18n="btnConfirmer">Confirmer la commande</button>
+                <button type="button" class="btn btn-secondary" id="hideOrderFormBtn" data-i18n="btnAnnuler">Annuler</button>
+              </div>
+              <p class="order-note" data-i18n="orderNote">Votre commande sera confirmée par téléphone.</p>
+              <p class="form-status" id="formStatus"></p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div><h3 class="footer-title">GRAVIX</h3><p class="footer-text" data-i18n="footerText">Gravure laser moderne, simple et subtile.</p></div>
+      <div>
+        <h4 class="footer-subtitle" data-i18n="footerLinksTitle">Liens de contact</h4>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/213559625588" target="_blank" rel="noopener noreferrer">WhatsApp / Téléphone</a></li>
+          <li><a href="https://www.facebook.com/share/1EeF8qv5Ep/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://www.instagram.com/gravix_deco/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-subtitle" data-i18n="footerNavTitle">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"   data-i18n="navHome">Accueil</a></li>
+          <li><a href="product.html" data-i18n="navProducts">Produits</a></li>
+          <li><a href="custom.html"  data-i18n="navCustom">Sur mesure</a></li>
+          <li><a href="#contact"     data-i18n="navContact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year"></span> Gravix. <span data-i18n="rights">Tous droits réservés.</span></p></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const showOrderFormBtn=document.getElementById("showOrderFormBtn"),hideOrderFormBtn=document.getElementById("hideOrderFormBtn"),orderFormWrapper=document.getElementById("orderFormWrapper"),orderForm=document.getElementById("orderForm"),formStatus=document.getElementById("formStatus"),submitOrderBtn=document.getElementById("submitOrderBtn"),wilayaSelect=document.getElementById("wilaya"),communeSelect=document.getElementById("commune"),deliveryHomeCard=document.getElementById("deliveryHomeCard"),deliveryDeskCard=document.getElementById("deliveryDeskCard"),deliveryHomeRadio=document.getElementById("deliveryHome"),deliveryDeskRadio=document.getElementById("deliveryDesk"),homePrice=document.getElementById("homePrice"),deskPrice=document.getElementById("deskPrice"),deliveryPriceInput=document.getElementById("deliveryPrice"),deliveryPlaceholder=document.getElementById("deliveryPlaceholder");
+    let communesData=[];
+    const DELIVERY_PRICES={"01":{home:1600,desk:1400},"02":{home:900,desk:650},"03":{home:950,desk:750},"04":{home:900,desk:650},"05":{home:900,desk:650},"06":{home:900,desk:650},"07":{home:950,desk:750},"08":{home:1600,desk:1400},"09":{home:800,desk:600},"10":{home:800,desk:600},"11":{home:1600,desk:1400},"12":{home:950,desk:750},"13":{home:1000,desk:800},"14":{home:900,desk:650},"15":{home:800,desk:600},"16":{home:700,desk:550},"17":{home:950,desk:750},"18":{home:900,desk:650},"19":{home:900,desk:650},"20":{home:1000,desk:800},"21":{home:900,desk:650},"22":{home:1000,desk:800},"23":{home:900,desk:650},"24":{home:900,desk:650},"25":{home:900,desk:650},"26":{home:800,desk:600},"27":{home:1000,desk:800},"28":{home:900,desk:650},"29":{home:1000,desk:800},"30":{home:950,desk:750},"31":{home:900,desk:650},"32":{home:1050,desk:850},"33":{home:1600,desk:1400},"34":{home:900,desk:650},"35":{home:800,desk:600},"36":{home:900,desk:650},"37":{home:1600,desk:1400},"38":{home:900,desk:650},"39":{home:950,desk:750},"40":{home:900,desk:650},"41":{home:900,desk:650},"42":{home:800,desk:600},"43":{home:900,desk:650},"44":{home:800,desk:600},"45":{home:1050,desk:850},"46":{home:900,desk:650},"47":{home:950,desk:750},"48":{home:900,desk:650},"49":{home:1050,desk:850},"50":{home:1050,desk:850},"51":{home:950,desk:750},"52":{home:1600,desk:1400},"53":{home:1600,desk:1400},"54":{home:1600,desk:1400},"55":{home:950,desk:750},"56":{home:1600,desk:1400},"57":{home:950,desk:750},"58":{home:950,desk:750}};
+    function normalizeCode(c){return String(c).padStart(2,"0");}
+    function resetCommuneSelect(m="Choisir d'abord une wilaya"){communeSelect.innerHTML=`<option value="">${m}</option>`;communeSelect.disabled=true;}
+    function resetDeliveryOptions(m="Choisir d'abord une commune"){deliveryHomeRadio.checked=false;deliveryDeskRadio.checked=false;deliveryHomeRadio.disabled=true;deliveryDeskRadio.disabled=true;deliveryHomeCard.classList.remove("active");deliveryDeskCard.classList.remove("active");homePrice.textContent="—";deskPrice.textContent="—";deliveryPriceInput.value="";deliveryPlaceholder.textContent=m;}
+    function fillCommunes(w){const c=normalizeCode(w),f=communesData.filter(i=>normalizeCode(i.wilaya_code)===c).sort((a,b)=>String(a.commune_name_ascii).localeCompare(String(b.commune_name_ascii),"fr",{sensitivity:"base"}));communeSelect.innerHTML='<option value="">Choisir une commune</option>';f.forEach(i=>{const o=document.createElement("option");o.value=i.commune_name_ascii;o.textContent=i.commune_name_ascii;communeSelect.appendChild(o);});communeSelect.disabled=f.length===0;if(f.length===0)communeSelect.innerHTML='<option value="">Aucune commune trouvée</option>';resetDeliveryOptions();}
+    function enableDeliveryOptions(){const p=DELIVERY_PRICES[wilayaSelect.value];if(!p){resetDeliveryOptions("Aucun tarif trouvé");return;}deliveryHomeRadio.disabled=false;deliveryDeskRadio.disabled=false;homePrice.textContent=`${p.home} DA`;deskPrice.textContent=`${p.desk} DA`;deliveryPlaceholder.textContent="Choisissez un mode de livraison";}
+    function selectDelivery(t){const p=DELIVERY_PRICES[wilayaSelect.value];if(!p)return;deliveryHomeCard.classList.remove("active");deliveryDeskCard.classList.remove("active");if(t==="home"){deliveryHomeRadio.checked=true;deliveryHomeCard.classList.add("active");deliveryPriceInput.value=`${p.home}`;}else{deliveryDeskRadio.checked=true;deliveryDeskCard.classList.add("active");deliveryPriceInput.value=`${p.desk}`;}}
+    async function loadCommunes(){try{resetCommuneSelect("Chargement...");const r=await fetch("data/datacommunes-algerie.json");if(!r.ok)throw new Error();const d=await r.json();communesData=d.filter(i=>i&&i.wilaya_code&&i.commune_name_ascii);resetCommuneSelect();resetDeliveryOptions();}catch(e){resetCommuneSelect("Erreur de chargement");}}
+    showOrderFormBtn.addEventListener("click",()=>{orderFormWrapper.classList.add("show");orderFormWrapper.scrollIntoView({behavior:"smooth",block:"start"});});
+    hideOrderFormBtn.addEventListener("click",()=>{orderFormWrapper.classList.remove("show");});
+    wilayaSelect.addEventListener("change",()=>{if(!wilayaSelect.value){resetCommuneSelect();resetDeliveryOptions();return;}fillCommunes(wilayaSelect.value);wilayaSelect.blur();setTimeout(()=>{communeSelect.focus();communeSelect.click();},150);});
+    communeSelect.addEventListener("change",()=>{if(!communeSelect.value){resetDeliveryOptions();return;}enableDeliveryOptions();communeSelect.blur();});
+    deliveryHomeCard.addEventListener("click",()=>{if(!deliveryHomeRadio.disabled)selectDelivery("home");});
+    deliveryDeskCard.addEventListener("click",()=>{if(!deliveryDeskRadio.disabled)selectDelivery("desk");});
+    orderForm.addEventListener("submit",async(e)=>{e.preventDefault();if(!orderForm.querySelector('input[name="Shipping mode"]:checked')){formStatus.textContent="Veuillez choisir un mode de livraison.";return;}formStatus.textContent="Envoi en cours...";submitOrderBtn.disabled=true;const fd=new FormData(orderForm);fd.set("Wilaya",wilayaSelect.options[wilayaSelect.selectedIndex]?.text||"");fd.set("Commune",communeSelect.value||"");try{const r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd});const d=await r.json();if(d.success){formStatus.textContent="Commande envoyée avec succès.";orderForm.reset();resetCommuneSelect();resetDeliveryOptions();setTimeout(()=>{orderFormWrapper.classList.remove("show");formStatus.textContent="";},1200);}else{formStatus.textContent="Erreur lors de l'envoi. Réessayez.";}}catch(e){formStatus.textContent="Erreur réseau. Réessayez.";}finally{submitOrderBtn.disabled=false;}});
+    loadCommunes();
+  </script>
+</body>
+</html>
