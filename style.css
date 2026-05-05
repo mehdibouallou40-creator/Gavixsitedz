@@ -186,9 +186,12 @@ a[href*="commande"]:hover {
 .main-product-image {
   width: 100%;
   max-height: 420px;
-  object-fit: cover;
+  object-fit: contain;      /* dézoomé : on voit tout le produit */
+  object-position: center;
+  background: var(--bg-soft); /* fond doux autour de l'image */
   border-radius: 20px;
   box-shadow: var(--shadow);
+  padding: 16px;             /* espace autour de l'image */
 }
 
 .product-details {
