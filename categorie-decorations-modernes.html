@@ -26,8 +26,13 @@
     .produit-btn { display: inline-flex; align-items: center; justify-content: center; margin-top: 6px; padding: 9px 0; border-radius: 999px; background: var(--accent); color: #fff; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: background var(--transition), transform var(--transition); }
     .produit-btn:hover { background: var(--accent-strong); transform: translateY(-1px); }
     @media (max-width: 1100px) { .produits-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px)  { .produits-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px)  { .produits-grid { grid-template-columns: 1fr; } }
+     @media (max-width: 1100px) { .produits-grid { grid-template-columns: repeat(3, 1fr); } }
+   @media screen and (max-width: 768px) {
+  .produits-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  } }
   </style>
 </head>
 <body>
