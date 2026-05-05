@@ -95,8 +95,6 @@ img { max-width: 100%; display: block; }
   border-radius: 18px;
   overflow: hidden;
   transition: var(--transition);
-  max-width: 60%;
-  margin: 0 auto;
 }
 
 .catalog-image {
@@ -105,9 +103,9 @@ img { max-width: 100%; display: block; }
   object-fit: cover;
 }
 
-.catalog-body { padding: 7px; text-align: center; }
-.catalog-title { font-size: 0.54rem; font-weight: 600; display: block; margin-bottom: 2px; }
-.catalog-price { color: var(--accent-strong); font-weight: 700; font-size: 0.54rem; }
+.catalog-body { padding: 12px; text-align: center; }
+.catalog-title { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 4px; }
+.catalog-price { color: var(--accent-strong); font-weight: 700; font-size: 0.9rem; }
 
 /* ─── FOOTER ─── */
 .footer { padding: 48px 0; background: #f0e8dc; border-top: 1px solid var(--line); }
@@ -120,99 +118,37 @@ img { max-width: 100%; display: block; }
 /* ─── SECTION MOBILE CRITIQUE ─── */
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
-  .nav { display: none; }
-
-  /* ── 3 COLONNES : TOUTES LES GRILLES DE PRODUITS ── */
-  .catalog-grid,
-  .products-grid,
-  .category-grid,
-  .category-products,
-  .product-list,
-  .items-grid,
-  [class*="product"][class*="grid"],
-  [class*="grid"][class*="product"],
-  [class*="catalog"][class*="grid"],
-  [class*="grid"][class*="catalog"] {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
+  .nav { display: none; } /* Menu caché par défaut */
+  
+  /* FORCE L'AFFICHAGE EN 3 COLONNES SUR MOBILE */
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr) !important; 
     gap: 10px !important;
+    display: grid !important;
   }
 
-  /* ── CARTES : tous les noms possibles ── */
-  .catalog-card,
-  .product-card,
-  .category-card,
-  .item-card,
-  [class*="product-card"],
-  [class*="catalog-card"] {
-    border-radius: 10px !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;  /* sur mobile la colonne est déjà petite */
-    min-width: 0 !important;
+  .catalog-card {
+    border-radius: 12px !important;
   }
 
-  .catalog-body,
-  .product-body,
-  .card-body,
-  [class*="card-body"],
-  [class*="product-body"] {
+  .catalog-body {
     padding: 8px 4px !important;
   }
 
-  .catalog-title,
-  .product-title,
-  .product-name,
-  .card-title,
-  [class*="product-title"],
-  [class*="product-name"],
-  [class*="card-title"] {
-    font-size: 0.7rem !important;
-    line-height: 1.2 !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .catalog-title {
+    font-size: 0.7rem !important; /* Texte plus petit pour tenir sur une ligne */
+    line-height: 1.2;
   }
 
-  .catalog-price,
-  .product-price,
-  .card-price,
-  [class*="price"] {
+  .catalog-price {
     font-size: 0.75rem !important;
-  }
-
-  /* ── Images carrées dans les cartes ── */
-  .catalog-image,
-  .product-image,
-  .product-img,
-  [class*="product-image"],
-  [class*="product-img"] {
-    width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    object-fit: cover !important;
   }
 }
 
-/* ── Très petits écrans (< 400px) ── */
+/* Pour les écrans très petits */
 @media (max-width: 400px) {
-  .catalog-grid,
-  .products-grid,
-  .category-grid,
-  .category-products,
-  .product-list,
-  .items-grid,
-  [class*="product"][class*="grid"],
-  [class*="grid"][class*="product"],
-  [class*="catalog"][class*="grid"],
-  [class*="grid"][class*="catalog"] {
+  .catalog-grid {
     gap: 6px !important;
   }
-
-  .catalog-title,
-  .product-title,
-  .product-name,
-  [class*="product-title"],
-  [class*="product-name"] {
-    font-size: 0.6rem !important;
-  }
+  .catalog-title { font-size: 0.6rem !important; }
 }
