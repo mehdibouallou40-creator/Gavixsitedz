@@ -16,15 +16,8 @@
   --transition: 0.3s ease;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: "Inter", sans-serif;
@@ -35,11 +28,8 @@ body {
   overflow-x: hidden;
 }
 
-body.ar {
-  font-family: "Cairo", sans-serif;
-}
+body.ar { font-family: "Cairo", sans-serif; }
 
-/* ─── BASE ─── */
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
@@ -52,12 +42,9 @@ img { max-width: 100%; display: block; }
   z-index: -1;
 }
 
-.container {
-  width: min(94%, var(--container));
-  margin: 0 auto;
-}
+.container { width: min(94%, var(--container)); margin: 0 auto; }
 
-/* ─── HEADER ─── */
+/* HEADER */
 .header {
   position: sticky;
   top: 0;
@@ -77,14 +64,13 @@ img { max-width: 100%; display: block; }
 .brand { display: flex; align-items: center; gap: 14px; }
 .brand-logo { width: 54px; height: 54px; border-radius: 12px; }
 .brand-name { letter-spacing: 0.3em; font-weight: 700; }
-
 .nav { display: flex; gap: 4px; }
 .nav a { font-size: 0.92rem; font-weight: 600; padding: 9px 18px; border-radius: 999px; }
 
-/* ─── GRILLES PRODUITS ─── */
+/* GRILLES PRODUITS */
 .catalog-grid {
   display: grid !important;
-  grid-template-columns: repeat(8, 1fr); /* Bureau */
+  grid-template-columns: repeat(8, 1fr);
   gap: 16px;
   width: 100%;
 }
@@ -95,6 +81,8 @@ img { max-width: 100%; display: block; }
   border-radius: 18px;
   overflow: hidden;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 .catalog-image {
@@ -103,52 +91,84 @@ img { max-width: 100%; display: block; }
   object-fit: cover;
 }
 
-.catalog-body { padding: 12px; text-align: center; }
-.catalog-title { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 4px; }
+.catalog-body {
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 6px;
+}
+
+.catalog-title { font-size: 0.9rem; font-weight: 600; display: block; }
 .catalog-price { color: var(--accent-strong); font-weight: 700; font-size: 0.9rem; }
 
-/* ─── FOOTER ─── */
+/* BOUTON COMMANDER */
+.produit-btn,
+.catalog-btn,
+a[href*="commande"] {
+  display: block !important;
+  width: 100% !important;
+  margin-top: auto !important;
+  padding: 12px 0 !important;
+  background: var(--accent) !important;
+  color: #fff !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 14px rgba(196, 128, 58, 0.35) !important;
+  transition: background 0.3s ease, transform 0.2s ease !important;
+}
+
+.produit-btn:hover,
+.catalog-btn:hover,
+a[href*="commande"]:hover {
+  background: var(--accent-strong) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* FOOTER */
 .footer { padding: 48px 0; background: #f0e8dc; border-top: 1px solid var(--line); }
 .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; }
 
-/* ─── RESPONSIVE ─── */
+/* RESPONSIVE */
 @media (max-width: 1400px) { .catalog-grid { grid-template-columns: repeat(6, 1fr); } }
 @media (max-width: 1024px) { .catalog-grid { grid-template-columns: repeat(4, 1fr); } }
 
-/* ─── SECTION MOBILE CRITIQUE ─── */
-@media (max-width: 768px) {
+/* MOBILE */
+@media screen and (max-width: 768px) {
   .menu-toggle { display: block; }
-  .nav { display: none; } /* Menu caché par défaut */
-  
-  /* FORCE L'AFFICHAGE EN 3 COLONNES SUR MOBILE */
+  .nav { display: none; }
+
   .catalog-grid {
-    grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 10px !important;
     display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
   }
 
-  .catalog-card {
-    border-radius: 12px !important;
-  }
+  .catalog-card { border-radius: 12px !important; }
 
-  .catalog-body {
-    padding: 8px 4px !important;
-  }
+  .catalog-body { padding: 6px 4px 8px !important; }
 
   .catalog-title {
-    font-size: 0.7rem !important; /* Texte plus petit pour tenir sur une ligne */
-    line-height: 1.2;
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
   }
 
-  .catalog-price {
-    font-size: 0.75rem !important;
+  .catalog-price { font-size: 0.72rem !important; }
+
+  .produit-btn,
+  .catalog-btn,
+  a[href*="commande"] {
+    font-size: 0.68rem !important;
+    padding: 8px 0 !important;
   }
 }
 
-/* Pour les écrans très petits */
-@media (max-width: 400px) {
-  .catalog-grid {
-    gap: 6px !important;
-  }
+@media screen and (max-width: 400px) {
+  .catalog-grid { gap: 6px !important; }
   .catalog-title { font-size: 0.6rem !important; }
 }
