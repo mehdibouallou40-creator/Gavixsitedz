@@ -145,6 +145,7 @@ const translations = {
     dmi15Name: "Sculpture islamique de table dorée",
     dmi16Name: "Calligraphie islamique de table bicolore",
     dmi18Name: "Décoration islamique ronde verset",
+    packHadj3Name: "Cadeaux Hadj 3 pièces",
 
     /* ── HORLOGES MODERNES ── */
     catHorModPageTitle: "Horloges modernes",
@@ -339,6 +340,7 @@ const translations = {
     dmi15Name: "تمثال إسلامي طاولة ذهبي",
     dmi16Name: "خط إسلامي طاولة لونين",
     dmi18Name: "ديكور إسلامي دائري آية",
+    packHadj3Name: "هدايا الحج 3 قطع",
 
     /* ── HORLOGES MODERNES ── */
     catHorModPageTitle: "ساعات عصرية",
