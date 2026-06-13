@@ -45,14 +45,37 @@
     <section class="section product-page-section">
       <div class="container product-layout">
 
-        <div class="product-gallery single-product-gallery">
-          <img src="images/3packhadj.jpg" alt="Cadeaux Hadj 3 pièces" class="main-product-image" />
-        </div>
+        <div class="product-gallery slider-gallery">
+
+  <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+
+  <div class="slider-container">
+      <img src="images/IMG_0874.jpg" class="slide active" alt="Photo 1">
+      <img src="images/IMG_0873 (1).jpg" class="slide" alt="Photo 2">
+      <img src="images/IMG_0872 (1).jpg" class="slide" alt="Photo 3">
+  </div>
+
+  <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+
+</div>
 
         <div class="product-details">
           <span class="section-label" data-i18n="produitGravix">Produit Gravix</span>
           <h1 class="product-page-title" data-i18n="packHadj3Name">Cadeaux Hadj 3 pièces</h1>
+          <p class="product-page-price">2800 DA</p>
           <p class="product-page-price">3200 DA</p>
+
+<div class="product-description" dir="rtl">
+  <h3>الوصف</h3>
+  <p>
+    ساعة وإطار إسلامي أنيق يضفي لمسة من الجمال والهدوء على غرفة الجلوس أو أي مساحة داخل المنزل.
+    يتميز بتصميم عصري مستوحى من الفن الإسلامي ليمنح ديكورك طابعاً راقياً وأجواءً من السكينة والراحة.
+  </p>
+
+  <p>
+    <strong>الأبعاد:</strong> 40 سم × 18 سم
+  </p>
+</div>
 
           <div class="product-actions">
             <button type="button" class="btn btn-primary" id="showOrderFormBtn" data-i18n="btnCommander">Commander</button>
@@ -174,6 +197,38 @@
     deliveryHomeCard.addEventListener("click",()=>{if(!deliveryHomeRadio.disabled)selectDelivery("home");});
     deliveryDeskCard.addEventListener("click",()=>{if(!deliveryDeskRadio.disabled)selectDelivery("desk");});
     orderForm.addEventListener("submit",async(e)=>{e.preventDefault();if(!orderForm.querySelector('input[name="Shipping mode"]:checked')){formStatus.textContent="Veuillez choisir un mode de livraison.";return;}formStatus.textContent="Envoi en cours...";submitOrderBtn.disabled=true;const fd=new FormData(orderForm);fd.set("Wilaya",wilayaSelect.options[wilayaSelect.selectedIndex]?.text||"");fd.set("Commune",communeSelect.value||"");try{const r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd});const d=await r.json();if(d.success){formStatus.textContent="Commande envoyée avec succès.";orderForm.reset();resetCommuneSelect();resetDeliveryOptions();setTimeout(()=>{orderFormWrapper.classList.remove("show");formStatus.textContent="";},1200);}else{formStatus.textContent="Erreur lors de l'envoi. Réessayez.";}}catch(e){formStatus.textContent="Erreur réseau. Réessayez.";}finally{submitOrderBtn.disabled=false;}});
+   /* ===== SLIDER ===== */
+
+let currentSlide = 0;
+
+function showSlide(index){
+  const slides = document.querySelectorAll(".slide");
+
+  slides.forEach(slide=>{
+    slide.classList.remove("active");
+  });
+
+  if(index >= slides.length){
+    currentSlide = 0;
+  }
+  else if(index < 0){
+    currentSlide = slides.length - 1;
+  }
+  else{
+    currentSlide = index;
+  }
+
+  slides[currentSlide].classList.add("active");
+}
+
+function changeSlide(direction){
+  showSlide(currentSlide + direction);
+}
+
+/* Défilement automatique */
+setInterval(()=>{
+  changeSlide(1);
+},4000);
     loadCommunes();
   </script>
 </body>

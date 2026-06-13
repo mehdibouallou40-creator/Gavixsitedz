@@ -285,3 +285,73 @@ a[href*="commande"]:hover {
     font-size: 0.95rem;
   }
 }
+
+/* ===== SLIDER PRODUIT ===== */
+
+.slider-gallery{
+  position:relative;
+  width:100%;
+}
+
+.slider-container{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.slide{
+  width:100%;
+  display:none !important;
+  border-radius:20px;
+}
+
+.slide.active{
+  display:block !important;
+}
+
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:45px;
+  height:45px;
+  border:none;
+  border-radius:50%;
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  font-size:24px;
+  cursor:pointer;
+  z-index:10;
+}
+
+.slider-btn:hover{
+  background:rgba(0,0,0,0.7);
+}
+
+.prev{
+  left:10px;
+}
+
+.next{
+  right:10px;
+}
+.product-description{
+  margin-top:20px;
+  padding:18px;
+  background:var(--bg-soft);
+  border-radius:16px;
+  border:1px solid var(--line);
+}
+
+.product-description h3{
+  margin-bottom:10px;
+  color:var(--accent);
+  font-size:1.1rem;
+}
+
+.product-description p{
+  margin-bottom:8px;
+  line-height:1.8;
+  color:var(--text);
+}
+}
