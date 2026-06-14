@@ -24,7 +24,16 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1541668230749194');
+
 fbq('track', 'PageView');
+
+fbq('track', 'ViewContent', {
+  content_ids: ['pack-hadj-3'],
+  content_name: 'Cadeaux Hadj 3 pièces',
+  content_type: 'product',
+  value: 2800,
+  currency: 'DZD'
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1541668230749194&ev=PageView&noscript=1"
@@ -207,13 +216,40 @@ src="https://www.facebook.com/tr?id=1541668230749194&ev=PageView&noscript=1"
     function enableDeliveryOptions(){const p=DELIVERY_PRICES[wilayaSelect.value];if(!p){resetDeliveryOptions("Aucun tarif trouvé");return;}deliveryHomeRadio.disabled=false;deliveryDeskRadio.disabled=false;homePrice.textContent=`${p.home} DA`;deskPrice.textContent=`${p.desk} DA`;deliveryPlaceholder.textContent="Choisissez un mode de livraison";}
     function selectDelivery(t){const p=DELIVERY_PRICES[wilayaSelect.value];if(!p)return;deliveryHomeCard.classList.remove("active");deliveryDeskCard.classList.remove("active");if(t==="home"){deliveryHomeRadio.checked=true;deliveryHomeCard.classList.add("active");deliveryPriceInput.value=`${p.home}`;}else{deliveryDeskRadio.checked=true;deliveryDeskCard.classList.add("active");deliveryPriceInput.value=`${p.desk}`;}}
     async function loadCommunes(){try{resetCommuneSelect("Chargement...");const r=await fetch("data/datacommunes-algerie.json");if(!r.ok)throw new Error();const d=await r.json();communesData=d.filter(i=>i&&i.wilaya_code&&i.commune_name_ascii);resetCommuneSelect();resetDeliveryOptions();}catch(e){resetCommuneSelect("Erreur de chargement");}}
-    showOrderFormBtn.addEventListener("click",()=>{orderFormWrapper.classList.add("show");orderFormWrapper.scrollIntoView({behavior:"smooth",block:"start"});});
+    showOrderFormBtn.addEventListener("click",()=>{
+
+  fbq('track', 'InitiateCheckout', {
+    content_name: 'Cadeaux Hadj 3 pièces',
+    value: 2800,
+    currency: 'DZD'
+  });
+
+  orderFormWrapper.classList.add("show");
+  orderFormWrapper.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+});
     hideOrderFormBtn.addEventListener("click",()=>{orderFormWrapper.classList.remove("show");});
     wilayaSelect.addEventListener("change",()=>{if(!wilayaSelect.value){resetCommuneSelect();resetDeliveryOptions();return;}fillCommunes(wilayaSelect.value);wilayaSelect.blur();setTimeout(()=>{communeSelect.focus();communeSelect.click();},150);});
     communeSelect.addEventListener("change",()=>{if(!communeSelect.value){resetDeliveryOptions();return;}enableDeliveryOptions();communeSelect.blur();});
     deliveryHomeCard.addEventListener("click",()=>{if(!deliveryHomeRadio.disabled)selectDelivery("home");});
     deliveryDeskCard.addEventListener("click",()=>{if(!deliveryDeskRadio.disabled)selectDelivery("desk");});
-    orderForm.addEventListener("submit",async(e)=>{e.preventDefault();if(!orderForm.querySelector('input[name="Shipping mode"]:checked')){formStatus.textContent="Veuillez choisir un mode de livraison.";return;}formStatus.textContent="Envoi en cours...";submitOrderBtn.disabled=true;const fd=new FormData(orderForm);fd.set("Wilaya",wilayaSelect.options[wilayaSelect.selectedIndex]?.text||"");fd.set("Commune",communeSelect.value||"");try{const r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd});const d=await r.json();if(d.success){formStatus.textContent="Commande envoyée avec succès.";orderForm.reset();resetCommuneSelect();resetDeliveryOptions();setTimeout(()=>{orderFormWrapper.classList.remove("show");formStatus.textContent="";},1200);}else{formStatus.textContent="Erreur lors de l'envoi. Réessayez.";}}catch(e){formStatus.textContent="Erreur réseau. Réessayez.";}finally{submitOrderBtn.disabled=false;}});
+    orderForm.addEventListener("submit",async(e)=>{e.preventDefault();if(!orderForm.querySelector('input[name="Shipping mode"]:checked')){formStatus.textContent="Veuillez choisir un mode de livraison.";return;}formStatus.textContent="Envoi en cours...";submitOrderBtn.disabled=true;const fd=new FormData(orderForm);fd.set("Wilaya",wilayaSelect.options[wilayaSelect.selectedIndex]?.text||"");fd.set("Commune",communeSelect.value||"");try{const r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd});const d=await r.json();
+
+if(d.success){
+
+  fbq('track', 'Lead');
+
+  fbq('track', 'Purchase', {
+    content_ids: ['pack-hadj-3'],
+    content_name: 'Cadeaux Hadj 3 pièces',
+    value: 2800,
+    currency: 'DZD'
+  });
+
+  formStatus.textContent="Commande envoyée avec succès.";orderForm.reset();resetCommuneSelect();resetDeliveryOptions();setTimeout(()=>{orderFormWrapper.classList.remove("show");formStatus.textContent="";},1200);}else{formStatus.textContent="Erreur lors de l'envoi. Réessayez.";}}catch(e){formStatus.textContent="Erreur réseau. Réessayez.";}finally{submitOrderBtn.disabled=false;}});
    /* ===== SLIDER ===== */
 
 let currentSlide = 0;
