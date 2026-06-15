@@ -208,7 +208,66 @@ src="https://www.facebook.com/tr?id=1541668230749194&ev=PageView&noscript=1"
   <script>
     const showOrderFormBtn=document.getElementById("showOrderFormBtn"),hideOrderFormBtn=document.getElementById("hideOrderFormBtn"),orderFormWrapper=document.getElementById("orderFormWrapper"),orderForm=document.getElementById("orderForm"),formStatus=document.getElementById("formStatus"),submitOrderBtn=document.getElementById("submitOrderBtn"),wilayaSelect=document.getElementById("wilaya"),communeSelect=document.getElementById("commune"),deliveryHomeCard=document.getElementById("deliveryHomeCard"),deliveryDeskCard=document.getElementById("deliveryDeskCard"),deliveryHomeRadio=document.getElementById("deliveryHome"),deliveryDeskRadio=document.getElementById("deliveryDesk"),homePrice=document.getElementById("homePrice"),deskPrice=document.getElementById("deskPrice"),deliveryPriceInput=document.getElementById("deliveryPrice"),deliveryPlaceholder=document.getElementById("deliveryPlaceholder");
     let communesData=[];
-    const DELIVERY_PRICES={"01":{home:1600,desk:1400},"02":{home:900,desk:650},"03":{home:950,desk:750},"04":{home:900,desk:650},"05":{home:900,desk:650},"06":{home:900,desk:650},"07":{home:950,desk:750},"08":{home:1600,desk:1400},"09":{home:800,desk:600},"10":{home:800,desk:600},"11":{home:1600,desk:1400},"12":{home:950,desk:750},"13":{home:1000,desk:800},"14":{home:900,desk:650},"15":{home:800,desk:600},"16":{home:700,desk:550},"17":{home:950,desk:750},"18":{home:900,desk:650},"19":{home:900,desk:650},"20":{home:1000,desk:800},"21":{home:900,desk:650},"22":{home:1000,desk:800},"23":{home:900,desk:650},"24":{home:900,desk:650},"25":{home:900,desk:650},"26":{home:800,desk:600},"27":{home:1000,desk:800},"28":{home:900,desk:650},"29":{home:1000,desk:800},"30":{home:950,desk:750},"31":{home:900,desk:650},"32":{home:1050,desk:850},"33":{home:1600,desk:1400},"34":{home:900,desk:650},"35":{home:800,desk:600},"36":{home:900,desk:650},"37":{home:1600,desk:1400},"38":{home:900,desk:650},"39":{home:950,desk:750},"40":{home:900,desk:650},"41":{home:900,desk:650},"42":{home:800,desk:600},"43":{home:900,desk:650},"44":{home:800,desk:600},"45":{home:1050,desk:850},"46":{home:900,desk:650},"47":{home:950,desk:750},"48":{home:900,desk:650},"49":{home:1050,desk:850},"50":{home:1050,desk:850},"51":{home:950,desk:750},"52":{home:1600,desk:1400},"53":{home:1600,desk:1400},"54":{home:1600,desk:1400},"55":{home:950,desk:750},"56":{home:1600,desk:1400},"57":{home:950,desk:750},"58":{home:950,desk:750}};
+    const DELIVERY_PRICES = {
+  "01": { home: 1500, desk: 1000 }, // Adrar
+  "02": { home: 750, desk: 450 },   // Chlef
+  "03": { home: 1000, desk: 600 },  // Laghouat
+  "04": { home: 900, desk: 600 },   // Oum El Bouagui
+  "05": { home: 900, desk: 600 },   // Batna
+  "06": { home: 850, desk: 500 },   // Béjaïa
+  "07": { home: 1100, desk: 700 },  // Biskra
+  "08": { home: 1200, desk: 800 },  // Béchar
+  "09": { home: 800, desk: 500 },   // Blida
+  "10": { home: 850, desk: 500 },   // Bouira
+  "11": { home: 2000, desk: 1500 }, // Tamanrasset
+  "12": { home: 900, desk: 600 },   // Tébessa
+  "13": { home: 500, desk: 300 },   // Tlemcen
+  "14": { home: 850, desk: 500 },   // Tiaret
+  "15": { home: 850, desk: 500 },   // Tizi Ouzou
+  "16": { home: 750, desk: 450 },   // Alger
+  "17": { home: 1000, desk: 600 },  // Djelfa
+  "18": { home: 900, desk: 600 },   // Jijel
+  "19": { home: 900, desk: 600 },   // Sétif
+  "20": { home: 700, desk: 450 },   // Saïda
+  "21": { home: 900, desk: 600 },   // Skikda
+  "22": { home: 650, desk: 400 },   // Sidi Bel Abbès
+  "23": { home: 900, desk: 600 },   // Annaba
+  "24": { home: 900, desk: 600 },   // Guelma
+  "25": { home: 900, desk: 600 },   // Constantine
+  "26": { home: 900, desk: 600 },   // Médéa
+  "27": { home: 750, desk: 450 },   // Mostaganem
+  "28": { home: 900, desk: 600 },   // M'Sila
+  "29": { home: 700, desk: 450 },   // Mascara
+  "30": { home: 1000, desk: 600 },  // Ouargla
+  "31": { home: 650, desk: 400 },   // Oran
+  "32": { home: 1200, desk: 800 },  // El Bayadh
+  "33": { home: 1900, desk: 1500 }, // Illizi
+  "34": { home: 900, desk: 600 },   // Bordj Bou Arréridj
+  "35": { home: 800, desk: 500 },   // Boumerdès
+  "36": { home: 900, desk: 600 },   // El Tarf
+  "37": { home: 1700, desk: 1000 }, // Tindouf
+  "38": { home: 900, desk: 600 },   // Tissemsilt
+  "39": { home: 1000, desk: 600 },  // El Oued
+  "40": { home: 900, desk: 600 },   // Khenchela
+  "41": { home: 900, desk: 600 },   // Souk Ahras
+  "42": { home: 800, desk: 500 },   // Tipaza
+  "43": { home: 900, desk: 600 },   // Mila
+  "44": { home: 800, desk: 500 },   // Aïn Defla
+  "45": { home: 1200, desk: 800 },  // Naâma
+  "46": { home: 600, desk: 400 },   // Aïn Témouchent
+  "47": { home: 1000, desk: 600 },  // Ghardaïa
+  "48": { home: 750, desk: 450 },   // Relizane
+  "49": { home: 1500, desk: 1000 }, // Timimoun
+  "50": { home: 1000, desk: 600 },  // El Meniaa
+  "51": { home: 1100, desk: 700 },  // Ouled Djellal
+  "52": { home: 1200, desk: 800 },  // Béni Abbès
+  "53": { home: 1800, desk: 1200 }, // In Salah
+  "54": { home: 1000, desk: 600 },  // El M'Ghair
+  "55": { home: 1000, desk: 600 },  // Touggourt
+  "56": { home: 1900, desk: 1500 }, // Djanet (non présent PDF, aligné Illizi)
+  "57": { home: 1800, desk: 1200 }, // In Salah
+  "58": { home: 2000, desk: 1500 }  // In Guezzam (aligné Tamanrasset)
+};
     function normalizeCode(c){return String(c).padStart(2,"0");}
     function resetCommuneSelect(m="Choisir d'abord une wilaya"){communeSelect.innerHTML=`<option value="">${m}</option>`;communeSelect.disabled=true;}
     function resetDeliveryOptions(m="Choisir d'abord une commune"){deliveryHomeRadio.checked=false;deliveryDeskRadio.checked=false;deliveryHomeRadio.disabled=true;deliveryDeskRadio.disabled=true;deliveryHomeCard.classList.remove("active");deliveryDeskCard.classList.remove("active");homePrice.textContent="—";deskPrice.textContent="—";deliveryPriceInput.value="";deliveryPlaceholder.textContent=m;}
